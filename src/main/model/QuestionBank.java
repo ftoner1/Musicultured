@@ -2,15 +2,12 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class QuestionBank {
     private String bankName;
     private ArrayList<Question> questions;
 
-    public QuestionBank() {
-        this.bankName = "";
-        this.questions = new ArrayList<>();
-    }
 
     public QuestionBank(String userBankName) {
         this.bankName = userBankName;
@@ -18,7 +15,7 @@ public class QuestionBank {
 
     }
 
-
+    //
     public void setBankName(String name) {
         this.bankName = name;
     }
@@ -27,14 +24,25 @@ public class QuestionBank {
         return this.bankName;
     }
 
+    // EFFECTS: returns the number of Questions in the QuestionBank
     public int numQuestions() {
         return questions.size();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds newQuestion to the back of questions
     public void addQuestion(Question newQuestion) {
         questions.add(newQuestion);
     }
 
+    // EFFECTS: returns true if bank is empty, false otherwise
+    public boolean isEmpty() {
+        return (this.questions.isEmpty());
+    }
+
+    // REQUIRES: there is a Question in the QuestionBank
+    // MODIFIES: this
+    // EFFECTS: removes the most recently added question from the bank
     public void removeQuestion() {
         if (questions.size() >= 1) {
             questions.remove((questions.size()) - 1);
@@ -43,7 +51,24 @@ public class QuestionBank {
         }
     }
 
+    // REQUIRES: at least 1 question in the bank
+    // EFFECTS: prints out all of the questions in the bank, with question and answer prefaced by 'q:' and 'a:'
+    public void printQuestionsAndAnswers() {
+        int questionNum = 1;
+        for (Question q: questions) {
+            System.out.println(questionNum + ".\n");
+            q.printQuestion();
+            questionNum++;
+        }
 
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return this.questions;
+    }
+
+    // REQUIRES: there is at least 1 question in the bank
+    // EFFECTS: returns the question most recently added to the bank
     public Question getRecentQuestion() {
         if (questions.size() == 0) {
             return null;
@@ -52,6 +77,3 @@ public class QuestionBank {
         }
     }
 }
-
-
-

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class QuestionBankTest {
     private QuestionBank testBank;
@@ -15,7 +16,7 @@ public class QuestionBankTest {
     @BeforeEach
 
     void runBefore() {
-        testBank = new QuestionBank();
+        testBank = new QuestionBank("test");
         testBankNamed = new QuestionBank("name");
         testQuestion = new Question("Question 1?", "Yes");
         testQuestion2 = new Question("Question 2?", "Yes");
@@ -73,6 +74,12 @@ public class QuestionBankTest {
         assertEquals(testBank.numQuestions(), 0);
 
 
+    }
+
+    @Test
+
+    void testIsEmpty() {
+        assertFalse(testBank.isEmpty());
     }
 
 

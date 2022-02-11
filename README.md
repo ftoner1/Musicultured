@@ -7,9 +7,9 @@ I chose this project as I think it's something I'd actually use and could benefi
 
 
 ## User Stories
-- As a user, I'd like to be able to create a new question with an answer
-- As a user, I'd like to be able to add a question to a question bank
+- As a user, I'd like to be able to create and add a question to a question bank
 - As a user, I'd like to be able to remove a question from a question bank
+- As a user, I'd like to be able to view all of the questions in my bank
 - As a user, I'd like to be able to take a quiz featuring all of the questions in my bank, and recieve a score back.
 
 An example of text with **bold** and *italic* fonts. 
