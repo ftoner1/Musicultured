@@ -118,7 +118,15 @@ public class StudyBuddyApp {
         if (bank.isEmpty()) {
             System.out.println("( ͡ з ͡) Add some questions!\n");
         } else {
-            bank.printQuestionsAndAnswers();
+            ArrayList<Question> questions = bank.getQuestions();
+            int questionNum = 1;
+            for (Question q: questions) {
+                System.out.println(questionNum + ".\n");
+                q.printQuestion();
+                questionNum++;
+            }
+
+
         }
     }
 
