@@ -14,6 +14,7 @@ public class StudyBuddyApp {
 
 
     // EFFECTS: Runs the StudyBuddy application
+
     public StudyBuddyApp() {
         runStudyBuddy();
     }
@@ -55,6 +56,7 @@ public class StudyBuddyApp {
     }
 
     // EFFECTS: displays menu of options to user
+
     private void displayMenu() {
         System.out.println("\ta -> add a question");
         System.out.println("\td -> delete most recent question");

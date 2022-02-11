@@ -25,17 +25,20 @@ public class QuestionBank {
     }
 
     // EFFECTS: returns the number of Questions in the QuestionBank
+
     public int numQuestions() {
         return questions.size();
     }
 
     // MODIFIES: this
     // EFFECTS: adds newQuestion to the back of questions
+
     public void addQuestion(Question newQuestion) {
         questions.add(newQuestion);
     }
 
     // EFFECTS: returns true if bank is empty, false otherwise
+
     public boolean isEmpty() {
         return (this.questions.isEmpty());
     }
@@ -43,6 +46,7 @@ public class QuestionBank {
     // REQUIRES: there is a Question in the QuestionBank
     // MODIFIES: this
     // EFFECTS: removes the most recently added question from the bank
+
     public void removeQuestion() {
         if (questions.size() >= 1) {
             questions.remove((questions.size()) - 1);
@@ -53,6 +57,7 @@ public class QuestionBank {
 
     // REQUIRES: at least 1 question in the bank
     // EFFECTS: prints out all of the questions in the bank, with question and answer prefaced by 'q:' and 'a:'
+
     public void printQuestionsAndAnswers() {
         int questionNum = 1;
         for (Question q: questions) {

@@ -8,12 +8,14 @@ public class Question {
 
     // REQUIRES: userQuestion and userAnswer have non-zero lengths
     // Question question prompt is set to userQuestion, answer is set to userAnswer.
+
     public Question(String userQuestion, String userAnswer) {
         this.question = userQuestion;
         this.answer = userAnswer;
     }
 
     // EFFECTS: returns question prompt of a user-created Question
+
     public String getQuestionPrompt() {
         return this.question;
     }
@@ -26,11 +28,13 @@ public class Question {
 
     // MODIFIES: this
     // EFFECTS: changes the answer of a Question
+
     public void setQuestionAnswer(String newAnswer) {
         this.answer = newAnswer;
     }
 
     // EFFECTS: returns the answer of a Question
+
     public String getQuestionAnswer() {
         return this.answer;
     }
@@ -44,6 +48,7 @@ public class Question {
     // REQUIRES: inputAnswer is not empty
     // EFFECTS: returns true if input is equal to answer
     // otherwise, return false
+
     public boolean isCorrect(String inputAnswer) {
         return inputAnswer.equalsIgnoreCase(this.answer);
     }
