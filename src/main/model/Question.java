@@ -40,10 +40,6 @@ public class Question {
     }
     // EFFECTS: prints out a Question's question
 
-    public void printQuestion() {
-        System.out.println("\tq: " + this.question + "\n");
-        System.out.println("\ta: " + this.answer + "\n");
-    }
 
     // REQUIRES: inputAnswer is not empty
     // EFFECTS: returns true if input is equal to answer

@@ -122,7 +122,8 @@ public class StudyBuddyApp {
             int questionNum = 1;
             for (Question q: questions) {
                 System.out.println(questionNum + ".\n");
-                q.printQuestion();
+                System.out.println("\tq: " + q.getQuestionPrompt() + "\n");
+                System.out.println("\ta: " + q.getQuestionAnswer() + "\n");
                 questionNum++;
             }
 
