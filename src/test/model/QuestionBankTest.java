@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -80,6 +82,30 @@ public class QuestionBankTest {
 
     void testIsEmpty() {
         assertFalse(testBank.isEmpty());
+    }
+
+    @Test
+
+    void testGetQuestions() {
+        ArrayList<Question> actualQuestions = new ArrayList<Question>();
+        assertEquals(actualQuestions, testBank.getQuestions());
+
+
+        testBank.addQuestion(testQuestion);
+        testBank.addQuestion(testQuestion2);
+        actualQuestions.add(testQuestion);
+        actualQuestions.add(testQuestion2);
+        assertEquals(actualQuestions, testBank.getQuestions());
+    }
+
+    @Test
+
+    void testGetRecentQuestion(){
+        assertEquals(null, testBank.getRecentQuestion());
+        testBank.addQuestion(testQuestion);
+        assertEquals(testQuestion, testBank.getRecentQuestion());
+
+
     }
 
 
