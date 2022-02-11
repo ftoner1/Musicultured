@@ -55,18 +55,6 @@ public class QuestionBank {
         }
     }
 
-    // REQUIRES: at least 1 question in the bank
-    // EFFECTS: prints out all of the questions in the bank, with question and answer prefaced by 'q:' and 'a:'
-
-    public void printQuestionsAndAnswers() {
-        int questionNum = 1;
-        for (Question q: questions) {
-            System.out.println(questionNum + ".\n");
-            q.printQuestion();
-            questionNum++;
-        }
-
-    }
 
     public ArrayList<Question> getQuestions() {
         return this.questions;
@@ -74,6 +62,7 @@ public class QuestionBank {
 
     // REQUIRES: there is at least 1 question in the bank
     // EFFECTS: returns the question most recently added to the bank
+
     public Question getRecentQuestion() {
         if (questions.size() == 0) {
             return null;
