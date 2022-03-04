@@ -63,8 +63,6 @@ public class QuestionBank implements Writable {
     // EFFECTS: prints out all of the questions in the bank, with question and answer prefaced by 'q:' and 'a:'
 
 
-
-
     public ArrayList<Question> getQuestions() {
         return this.questions;
     }

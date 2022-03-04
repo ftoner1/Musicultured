@@ -16,7 +16,6 @@ public class QuestionBankTest {
 
 
     @BeforeEach
-
     void runBefore() {
         testBank = new QuestionBank("test");
         testBankNamed = new QuestionBank("name");
@@ -25,7 +24,6 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testConstructor() {
         assertEquals(testBank.getBankName(), "");
         assertEquals(testBank.numQuestions(), 0);
@@ -33,7 +31,6 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testConstructorWithName() {
         assertEquals(testBankNamed.getBankName(), "name");
         assertEquals(testBankNamed.numQuestions(), 0);
@@ -41,7 +38,6 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testSetters() {
         testBank.setBankName("new name");
         testBankNamed.setBankName("new name 2");
@@ -49,7 +45,6 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testAddQuestion() {
         testBank.addQuestion(testQuestion);
         assertEquals(testBank.getRecentQuestion(), testQuestion);
@@ -63,7 +58,6 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testRemoveQuestion() {
         testBank.addQuestion(testQuestion);
         testBank.addQuestion(testQuestion2);
@@ -79,13 +73,11 @@ public class QuestionBankTest {
     }
 
     @Test
-
     void testIsEmpty() {
         assertFalse(testBank.isEmpty());
     }
 
     @Test
-
     void testGetQuestions() {
         ArrayList<Question> actualQuestions = new ArrayList<Question>();
         assertEquals(actualQuestions, testBank.getQuestions());
@@ -99,16 +91,13 @@ public class QuestionBankTest {
     }
 
     @Test
-
-    void testGetRecentQuestion(){
+    void testGetRecentQuestion() {
         assertEquals(null, testBank.getRecentQuestion());
         testBank.addQuestion(testQuestion);
         assertEquals(testQuestion, testBank.getRecentQuestion());
 
 
     }
-
-
 
 
 }

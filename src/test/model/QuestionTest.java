@@ -9,14 +9,12 @@ class QuestionTest {
     private Question testQuestion;
 
     @BeforeEach
-
     void runBefore() {
         testQuestion = new Question("Question?", "Answer.");
     }
 
 
     @Test
-
     void testConstructor() {
         assertEquals(testQuestion.getQuestionPrompt(), "Question?");
         assertEquals(testQuestion.getQuestionAnswer(), "Answer.");
@@ -24,14 +22,12 @@ class QuestionTest {
 
 
     @Test
-
     void testIsCorrect() {
         assertEquals(testQuestion.isCorrect("Answer."), true);
         assertEquals(testQuestion.isCorrect("Wrong"), false);
     }
 
     @Test
-
     void testSetters() {
         testQuestion.setQuestionPrompt("newQuestion");
         testQuestion.setQuestionAnswer("newAnswer");
