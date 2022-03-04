@@ -1,6 +1,9 @@
 package model;
 
-public class Question {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class Question implements Writable {
 
     private String question;
     private String answer;
@@ -49,7 +52,13 @@ public class Question {
         return inputAnswer.equalsIgnoreCase(this.answer);
     }
 
-
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("question", question);
+        json.put("answer", answer);
+        return json;
+    }
 
 
 

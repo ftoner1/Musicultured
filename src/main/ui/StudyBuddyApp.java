@@ -2,15 +2,21 @@ package ui;
 
 import model.Question;
 import model.QuestionBank;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class StudyBuddyApp {
     private QuestionBank bank;
-
     private Scanner input;
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
+    private static final String JSON_STORE = "./data/testWriterEmptyQBank.json";
 
 
     // EFFECTS: Runs the StudyBuddy application
@@ -50,6 +56,10 @@ public class StudyBuddyApp {
             viewQuestions();
         } else if (command.equals("t")) {
             testUser();
+        } else if (command.equals("s")) {
+            saveQuestionBank();
+        } else if (command.equals("l")) {
+            loadQuestionBank();
         } else {
             System.out.println("(╯°□°）╯︵ ┻━┻ Please enter a valid selection!");
         }
@@ -62,14 +72,18 @@ public class StudyBuddyApp {
         System.out.println("\td -> delete most recent question");
         System.out.println("\tt -> test yourself!");
         System.out.println("\tv -> view questions");
+        System.out.println("\tl -> load questions from file");
+        System.out.println("\ts -> save questions to file");
         System.out.println("\tq -> quit");
     }
 
 
     private void init() {
-        bank = new QuestionBank("bank");
+        bank = new QuestionBank("userBank");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
     }
 
 
@@ -128,6 +142,28 @@ public class StudyBuddyApp {
             }
 
 
+        }
+    }
+    // EFFECTS: saves the workroom to file
+    private void saveQuestionBank() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(bank);
+            jsonWriter.close();
+            System.out.println("Saved " + bank.getBankName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads QuestionBank from file
+    private void loadQuestionBank() {
+        try {
+            bank = jsonReader.read();
+            System.out.println("Loaded " + bank.getBankName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

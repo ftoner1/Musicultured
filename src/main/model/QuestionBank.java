@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class QuestionBank {
+public class QuestionBank implements Writable {
     private String bankName;
     private ArrayList<Question> questions;
 
@@ -74,5 +78,24 @@ public class QuestionBank {
         } else {
             return questions.get((questions.size()) - 1);
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("bank name", bankName);
+        json.put("questions", questionsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray questionsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Question q : questions) {
+            jsonArray.put(q.toJson());
+        }
+
+        return jsonArray;
     }
 }
