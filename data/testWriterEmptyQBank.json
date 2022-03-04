@@ -1,17 +1,4 @@
 {
-  "bank name": "userBank",
-  "questions": [
-    {
-      "question": "s",
-      "answer": "s"
-    },
-    {
-      "question": "a",
-      "answer": "a"
-    },
-    {
-      "question": "new q",
-      "answer": "a"
-    }
-  ]
+    "bank name": "My question bank",
+    "questions": []
 }

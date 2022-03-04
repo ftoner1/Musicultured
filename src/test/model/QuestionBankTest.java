@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class QuestionBankTest {
     private QuestionBank testBank;
@@ -25,7 +24,7 @@ public class QuestionBankTest {
 
     @Test
     void testConstructor() {
-        assertEquals(testBank.getBankName(), "");
+        assertEquals("test", testBank.getBankName());
         assertEquals(testBank.numQuestions(), 0);
 
     }
@@ -74,7 +73,7 @@ public class QuestionBankTest {
 
     @Test
     void testIsEmpty() {
-        assertFalse(testBank.isEmpty());
+        assertTrue(testBank.isEmpty());
     }
 
     @Test
