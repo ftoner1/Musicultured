@@ -16,7 +16,7 @@ public class StudyBuddyApp {
     private Scanner input;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
-    private static final String JSON_STORE = "./data/testWriterEmptyQBank.json";
+    private static final String JSON_STORE = "./data/qbank.json";
 
 
     // EFFECTS: Runs the StudyBuddy application
@@ -87,7 +87,6 @@ public class StudyBuddyApp {
     }
 
 
-
     private void addQuestion() {
         System.out.println("Enter your question: \n");
         String question = input.next();
@@ -105,7 +104,7 @@ public class StudyBuddyApp {
         int outOf = questions.size();
         System.out.println("\n Starting Quiz!");
         int curQuestion = 1;
-        for (Question q: questions) {
+        for (Question q : questions) {
             System.out.println(curQuestion + ". \n" + q.getQuestionPrompt());
             String answer = input.next();
             if (answer.equalsIgnoreCase(q.getQuestionAnswer())) {
@@ -134,7 +133,7 @@ public class StudyBuddyApp {
         } else {
             ArrayList<Question> questions = bank.getQuestions();
             int questionNum = 1;
-            for (Question q: questions) {
+            for (Question q : questions) {
                 System.out.println(questionNum + ".\n");
                 System.out.println("\tq: " + q.getQuestionPrompt() + "\n");
                 System.out.println("\ta: " + q.getQuestionAnswer() + "\n");
@@ -144,7 +143,9 @@ public class StudyBuddyApp {
 
         }
     }
+
     // EFFECTS: saves the workroom to file
+
     private void saveQuestionBank() {
         try {
             jsonWriter.open();
@@ -158,6 +159,7 @@ public class StudyBuddyApp {
 
     // MODIFIES: this
     // EFFECTS: loads QuestionBank from file
+
     private void loadQuestionBank() {
         try {
             bank = jsonReader.read();
