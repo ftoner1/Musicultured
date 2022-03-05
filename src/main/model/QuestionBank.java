@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+// represents a question bank having a name and a list of questions
+
 public class QuestionBank implements Writable {
     private String bankName;
     private ArrayList<Question> questions;
@@ -86,7 +88,7 @@ public class QuestionBank implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns things in this question bank as a JSON array
     private JSONArray questionsToJson() {
         JSONArray jsonArray = new JSONArray();
 

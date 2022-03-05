@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import model.QuestionBank;
 import org.json.*;
 
+// Represents a reader that reads workroom from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -42,27 +43,27 @@ public class JsonReader {
     // EFFECTS: parses QuestionBank from JSON object and returns it
     private QuestionBank parseQuestionBank(JSONObject jsonObject) {
         String name = jsonObject.getString("bank name");
-        QuestionBank wr = new QuestionBank(name);
-        addQuestions(wr, jsonObject);
-        return wr;
+        QuestionBank qb = new QuestionBank(name);
+        addQuestions(qb, jsonObject);
+        return qb;
     }
 
     // MODIFIES: wr
     // EFFECTS: parses questions from JSON object and adds them to QuestionBank
-    private void addQuestions(QuestionBank wr, JSONObject jsonObject) {
+    private void addQuestions(QuestionBank qb, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("questions");
         for (Object json : jsonArray) {
             JSONObject nextQuestion = (JSONObject) json;
-            addQuestion(wr, nextQuestion);
+            addQuestion(qb, nextQuestion);
         }
     }
 
     // MODIFIES: wr
     // EFFECTS: parses Question from JSON object and adds it to QuestionBank
-    private void addQuestion(QuestionBank wr, JSONObject jsonObject) {
+    private void addQuestion(QuestionBank qb, JSONObject jsonObject) {
         String question = jsonObject.getString("question");
         String answer = jsonObject.getString("answer");
         Question addedQuestion = new Question(question, answer);
-        wr.addQuestion(addedQuestion);
+        qb.addQuestion(addedQuestion);
     }
 }

@@ -3,6 +3,7 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
+// Represents a question having a question prompt and an answer
 public class Question implements Writable {
 
     private String question;
