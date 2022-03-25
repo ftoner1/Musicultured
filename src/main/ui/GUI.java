@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 public class GUI implements ActionListener {
 
@@ -37,6 +36,7 @@ public class GUI implements ActionListener {
         testYourself.addActionListener(this);
         loadQuestions.addActionListener(this);
         saveQuestions.addActionListener(this);
+        viewQuestions.addActionListener(this);
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createMatteBorder(30, 30, 10, 30, Color.white));
@@ -83,7 +83,7 @@ public class GUI implements ActionListener {
             new AddQuestionGUI();
             frame.dispose();
         } else if (e.getSource() == deleteQuestion) {
-            new DeleteQuestionGUI();
+            new ViewQuestionsGUI();
             frame.dispose();
         } else if (e.getSource() == testYourself) {
             new TestUserGUI();

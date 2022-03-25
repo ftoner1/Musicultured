@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class StudyBuddyApp {
     private static QuestionBank bank;
     private Scanner input;
-    private JsonReader jsonReader;
+    private static JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private static final String JSON_STORE = "./data/qbank.json";
 
@@ -59,7 +59,10 @@ public class StudyBuddyApp {
         } else if (command.equals("s")) {
             saveQuestionBank();
         } else if (command.equals("l")) {
-            loadQuestionBank();
+            try {
+                loadQuestionBank();
+            } catch (IOException i) {
+            }
         } else {
             System.out.println("(╯°□°）╯︵ ┻━┻ Please enter a valid selection!");
         }
@@ -160,17 +163,18 @@ public class StudyBuddyApp {
     // MODIFIES: this
     // EFFECTS: loads QuestionBank from file
 
-    private void loadQuestionBank() {
+    public static void loadQuestionBank() throws IOException {
         try {
             bank = jsonReader.read();
             System.out.println("Loaded " + bank.getBankName() + " from " + JSON_STORE);
         } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
+            throw new IOException();
         }
     }
 
     public static QuestionBank getBank() {
         return bank;
     }
+
 
 }

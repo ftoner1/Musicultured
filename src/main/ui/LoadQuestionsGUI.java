@@ -56,9 +56,9 @@ public class LoadQuestionsGUI {
     // EFFECTS: Loads the saved QuestionBank
     public void loadQuestionBank() {
         try {
-            bank = jsonReader.read();
+            StudyBuddyApp.loadQuestionBank();
 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             errorPanel = new JPanel();
             errorMessage = new JLabel("Error: Unable to read from file");
             errorButton = new JButton("Return to Menu");
@@ -69,9 +69,6 @@ public class LoadQuestionsGUI {
 
             errorPanel.add(errorMessage);
             errorPanel.add(errorButton);
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

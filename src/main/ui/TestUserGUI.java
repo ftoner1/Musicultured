@@ -21,10 +21,7 @@ public class TestUserGUI implements ActionListener {
 
     private JLabel success;
 
-    private JFrame questionFrame;
-    private JPanel questionPanel;
-    private JLabel questionLabel;
-    private JLabel answerLabel;
+
     private JTextField userAnswer;
 
     private JFrame noQuestionsFrame;
@@ -41,10 +38,13 @@ public class TestUserGUI implements ActionListener {
 
 
     private QuestionBank bank = StudyBuddyApp.getBank();
-    ArrayList<Question> questions = bank.getQuestions();
+    ArrayList<Question> actualQuestions = bank.getQuestions();
+    ArrayList<Question> tempQuestions = (ArrayList<Question>) actualQuestions.clone();
+
+
     Question curQuestion;
     int score = 0;
-    int outOf = questions.size();
+    int outOf = tempQuestions.size();
     int curQuestionNumber = 1;
 
     private boolean correct;
@@ -78,7 +78,7 @@ public class TestUserGUI implements ActionListener {
         if (outOf == 0) {
             //GUI for No Questions! return user to menu - JButton = we done
             noQuestions();
-        } else if (questions.size() == 0) {
+        } else if (tempQuestions.size() == 0) {
             // Window for quiz complete, show score - return user to menu
             quizComplete();
         } else {
@@ -88,8 +88,6 @@ public class TestUserGUI implements ActionListener {
             askQuestion();
         }
     }
-
-
 
 
     private void noQuestions() {
@@ -131,7 +129,7 @@ public class TestUserGUI implements ActionListener {
     }
 
     private void askQuestion() {
-        curQuestion = questions.get(0);
+        curQuestion = tempQuestions.get(0);
 
         askQuestionFrame = new JFrame();
         askQuestionPanel = new JPanel();
@@ -144,7 +142,6 @@ public class TestUserGUI implements ActionListener {
         submitAnswer.addActionListener(this);
         success = new JLabel("");
         success.setBounds(10, 110, 300, 25);
-
 
 
         askQuestionPanel.add(askQuestionLabel);
@@ -173,13 +170,15 @@ public class TestUserGUI implements ActionListener {
             new GUI();
             quizCompleteFrame.dispose();
         } else if (e.getSource() == submitAnswer) {
-            userAnswer.toString();
-            questions.remove(0);
-            correct = userAnswer.equals(curQuestion.getQuestionAnswer());
+            String stringUserAnswer = this.userAnswer.getText();
+            String stringActualAnswer = curQuestion.getQuestionAnswer();
+            tempQuestions.remove(0);
+            correct = stringUserAnswer.equals(stringActualAnswer);
             curQuestionNumber++;
-            if (this.correct) {
+            if (correct) {
                 score++;
             }
+
             askQuestionFrame.dispose();
             runQuiz();
 
