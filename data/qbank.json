@@ -1,4 +1,13 @@
 {
     "bank name": "userBank",
-    "questions": []
+    "questions": [
+        {
+            "question": "hi",
+            "answer": "hi"
+        },
+        {
+            "question": "lol",
+            "answer": "lol"
+        }
+    ]
 }

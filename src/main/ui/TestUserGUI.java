@@ -64,6 +64,7 @@ public class TestUserGUI implements ActionListener {
 
         startTestPanel.add(startTestLabel);
         startTestPanel.add(startedTest);
+        startedTest.addActionListener(this);
         startTestPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         startTestPanel.setLayout(new GridLayout(0, 1));
 
@@ -100,6 +101,7 @@ public class TestUserGUI implements ActionListener {
 
         noQuestionsPanel.add(noQuestionsLabel);
         noQuestionsPanel.add(noQuestions);
+        noQuestions.addActionListener(this);
         noQuestionsPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         noQuestionsPanel.setLayout(new GridLayout(0, 1));
 
@@ -117,6 +119,8 @@ public class TestUserGUI implements ActionListener {
 
         quizCompletePanel.add(quizCompleteLabel);
         quizCompletePanel.add(quizComplete);
+        quizComplete.addActionListener(this);
+
         quizCompletePanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         quizCompletePanel.setLayout(new GridLayout(0, 1));
 
@@ -141,17 +145,11 @@ public class TestUserGUI implements ActionListener {
         success = new JLabel("");
         success.setBounds(10, 110, 300, 25);
 
-        userAnswer.toString();
-
-        questions.remove(0);
-
-        correct = userAnswer.equals(curQuestion.getQuestionAnswer());
-
-        curQuestionNumber++;
 
 
         askQuestionPanel.add(askQuestionLabel);
         askQuestionPanel.add(userAnswer);
+        askQuestionPanel.add(submitAnswer);
         askQuestionPanel.add(success);
         askQuestionPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         askQuestionPanel.setLayout(new GridLayout(0, 1));
@@ -175,11 +173,16 @@ public class TestUserGUI implements ActionListener {
             new GUI();
             quizCompleteFrame.dispose();
         } else if (e.getSource() == submitAnswer) {
+            userAnswer.toString();
+            questions.remove(0);
+            correct = userAnswer.equals(curQuestion.getQuestionAnswer());
+            curQuestionNumber++;
             if (this.correct) {
                 score++;
             }
-            runQuiz();
             askQuestionFrame.dispose();
+            runQuiz();
+
         }
 
     }
