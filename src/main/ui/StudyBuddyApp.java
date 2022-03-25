@@ -12,7 +12,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class StudyBuddyApp {
-    private QuestionBank bank;
+    private static QuestionBank bank;
     private Scanner input;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
@@ -169,5 +169,8 @@ public class StudyBuddyApp {
         }
     }
 
+    public static QuestionBank getBank() {
+        return bank;
+    }
 
 }
