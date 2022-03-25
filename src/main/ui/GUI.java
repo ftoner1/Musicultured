@@ -20,6 +20,7 @@ public class GUI implements ActionListener {
     private JButton loadQuestions;
     private JButton saveQuestions;
     private JButton viewQuestions;
+    private ImageIcon logo;
 
     private QuestionBank bank = StudyBuddyApp.getBank();
     private JsonReader jsonReader;
@@ -52,9 +53,12 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
 
     }
+    // EFFECTS: Initializes the home menu
 
     public void initializeWelcomePage() {
         label = new JLabel("StudyBuddy ver. 1.3");
+        logo = new ImageIcon("./data/galaxy-.jpg");
+        label.setIcon(logo);
         label.setFont(new Font("Futura", Font.BOLD, 35));
         label.setForeground(Color.BLACK);
         label.setIconTextGap(10);
@@ -98,7 +102,6 @@ public class GUI implements ActionListener {
             new ViewQuestionsGUI();
             frame.dispose();
         }
-
     }
 
 

@@ -23,8 +23,9 @@ public class ViewQuestionsGUI implements ActionListener {
         returnToMenu = new JButton("Return to Menu");
         int curQuestion = 1;
 
-        for (Question q: bank.getQuestions()) {
-            String questionString = (curQuestion + ". " + "q: " + q.getQuestionPrompt() + "  a: " + q.getQuestionAnswer());
+        for (Question q : bank.getQuestions()) {
+            String questionString = (curQuestion + ". " + "q: "
+                    + q.getQuestionPrompt() + "  a: " + q.getQuestionAnswer());
             JLabel curLabel = new JLabel(questionString);
             viewQuestionPanel.add(curLabel);
             curQuestion++;
@@ -38,13 +39,17 @@ public class ViewQuestionsGUI implements ActionListener {
         viewQuestionPanel.add(returnToMenu);
         viewQuestionPanel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         viewQuestionPanel.setLayout(new GridLayout(0, 1));
+        setUpFrame();
 
+    }
+
+    // Aids in setting up frame as to please checkstyle rules
+    private void setUpFrame() {
         viewQuestionFrame.add(viewQuestionPanel, BorderLayout.CENTER);
         viewQuestionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         viewQuestionFrame.pack();
         viewQuestionFrame.setVisible(true);
     }
-
 
     // EFFECTS: Crates directory of methods that each buttons takes action on.
 

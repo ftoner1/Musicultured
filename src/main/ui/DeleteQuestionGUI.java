@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+// Opens GUI for question deletion
 public class DeleteQuestionGUI implements ActionListener {
     private JFrame deleteQuestionFrame;
     private JPanel deleteQuestionPanel;
@@ -15,6 +17,7 @@ public class DeleteQuestionGUI implements ActionListener {
     private JButton deletedMessage;
     private QuestionBank bank = StudyBuddyApp.getBank();
 
+    // initializes Question deletion gui
     public DeleteQuestionGUI() {
         deleteQuestionFrame = new JFrame();
         deleteQuestionPanel = new JPanel();

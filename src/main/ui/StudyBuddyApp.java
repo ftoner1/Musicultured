@@ -62,6 +62,7 @@ public class StudyBuddyApp {
             try {
                 loadQuestionBank();
             } catch (IOException i) {
+                System.out.println("lol");
             }
         } else {
             System.out.println("(╯°□°）╯︵ ┻━┻ Please enter a valid selection!");
