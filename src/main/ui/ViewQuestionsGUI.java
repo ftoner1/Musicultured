@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Opens GUI for user viewing questions
 public class ViewQuestionsGUI implements ActionListener {
     private JFrame viewQuestionFrame;
     private JPanel viewQuestionPanel;
@@ -15,6 +16,7 @@ public class ViewQuestionsGUI implements ActionListener {
     private JButton returnToMenu;
     private QuestionBank bank = StudyBuddyApp.getBank();
 
+    // EFFECTS: Runs the ViewQuestions GUI
 
     public ViewQuestionsGUI() {
         viewQuestionFrame = new JFrame();
@@ -43,7 +45,7 @@ public class ViewQuestionsGUI implements ActionListener {
 
     }
 
-    // Aids in setting up frame as to please checkstyle rules
+    // EFFECTS: Aids in setting up frame as to please checkstyle rules
     private void setUpFrame() {
         viewQuestionFrame.add(viewQuestionPanel, BorderLayout.CENTER);
         viewQuestionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

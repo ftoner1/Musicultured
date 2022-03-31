@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -13,12 +14,14 @@ import java.util.Locale;
 public class QuestionBank implements Writable {
     private String bankName;
     private ArrayList<Question> questions;
+    private EventLog theLog;
+
 
 
     public QuestionBank(String userBankName) {
         this.bankName = userBankName;
         this.questions = new ArrayList<>();
-
+        this.theLog = EventLog.getInstance();
     }
 
     //
@@ -41,6 +44,7 @@ public class QuestionBank implements Writable {
 
     public void addQuestion(Question newQuestion) {
         questions.add(newQuestion);
+        theLog.logEvent(new Event("Added a question to bank"));
     }
 
     // EFFECTS: returns true if bank is empty, false otherwise
@@ -56,6 +60,7 @@ public class QuestionBank implements Writable {
     public void removeQuestion() {
         if (questions.size() >= 1) {
             questions.remove((questions.size()) - 1);
+            theLog.logEvent(new Event("Removed most recent question from bank"));
         } else {
             return;
         }
@@ -78,6 +83,10 @@ public class QuestionBank implements Writable {
         } else {
             return questions.get((questions.size()) - 1);
         }
+    }
+
+    public EventLog getTheLog() {
+        return theLog;
     }
 
     @Override

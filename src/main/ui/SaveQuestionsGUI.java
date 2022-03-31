@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+// GUI for user saving current questions
 public class SaveQuestionsGUI {
 
     private JFrame savedQuestionsFrame;
@@ -26,7 +27,7 @@ public class SaveQuestionsGUI {
     private QuestionBank bank = StudyBuddyApp.getBank();
 
 
-
+    // EFFECTS: Creates new window showing user saved questions
     public SaveQuestionsGUI() {
         jsonWriter = new JsonWriter(JSON_STORE);
         saveQuestionBank();

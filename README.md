@@ -18,6 +18,14 @@ semester!
 - As a user, I'd like to be able to take a quiz featuring all of the questions in my bank, and recieve a score back.
 - As a user, I'd like to be able to save my questions and close the application
 - As a user, I'd like to be prompted to load my old questions when I start the application
--
+
+## Phase 4: Task 2
+
+Added a question to bank \
+Added a question to bank \
+Removed most recent question from bank \
+Removed most recent question from bank \
+Added a question to bank 
+
 
 An example of text with **bold** and *italic* fonts. 

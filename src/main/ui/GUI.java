@@ -1,5 +1,6 @@
 package ui;
 
+import model.Event;
 import model.QuestionBank;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Creates the main GUI for StudyBuddy
 public class GUI implements ActionListener {
 
     private JFrame frame;
@@ -20,6 +22,7 @@ public class GUI implements ActionListener {
     private JButton loadQuestions;
     private JButton saveQuestions;
     private JButton viewQuestions;
+    private JButton quit;
     private ImageIcon logo;
 
     private QuestionBank bank = StudyBuddyApp.getBank();
@@ -38,6 +41,7 @@ public class GUI implements ActionListener {
         loadQuestions.addActionListener(this);
         saveQuestions.addActionListener(this);
         viewQuestions.addActionListener(this);
+        quit.addActionListener(this);
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createMatteBorder(30, 30, 10, 30, Color.white));
@@ -57,7 +61,7 @@ public class GUI implements ActionListener {
 
     public void initializeWelcomePage() {
         label = new JLabel("StudyBuddy ver. 1.3");
-        logo = new ImageIcon("./data/galaxy-.jpg");
+        logo = new ImageIcon("./data/galaxy.jpg");
         label.setIcon(logo);
         label.setFont(new Font("Futura", Font.BOLD, 35));
         label.setForeground(Color.BLACK);
@@ -68,6 +72,7 @@ public class GUI implements ActionListener {
         loadQuestions = new JButton("Load questions from file");
         saveQuestions = new JButton("Save current questions to file");
         viewQuestions = new JButton("View all current questions");
+        quit = new JButton("Quit StudyBuddy");
     }
 
     // EFFECTS: Adds labelled buttons to welcome panel
@@ -78,6 +83,7 @@ public class GUI implements ActionListener {
         panel.add(loadQuestions);
         panel.add(saveQuestions);
         panel.add(viewQuestions);
+        panel.add(quit);
     }
 
     // EFFECTS: Crates directory of methods that each buttons takes action on.
@@ -87,7 +93,7 @@ public class GUI implements ActionListener {
             new AddQuestionGUI();
             frame.dispose();
         } else if (e.getSource() == deleteQuestion) {
-            new ViewQuestionsGUI();
+            new DeleteQuestionGUI();
             frame.dispose();
         } else if (e.getSource() == testYourself) {
             new TestUserGUI();
@@ -101,6 +107,15 @@ public class GUI implements ActionListener {
         } else if (e.getSource() == viewQuestions) {
             new ViewQuestionsGUI();
             frame.dispose();
+        } else if (e.getSource() == quit) {
+            frame.dispose();
+            printLog();
+        }
+    }
+
+    private void printLog() {
+        for (Event ev: bank.getTheLog().getInstance()) {
+            System.out.println(ev.getDescription());
         }
     }
 

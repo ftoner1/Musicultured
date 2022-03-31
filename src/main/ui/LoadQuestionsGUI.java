@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// GUI for user loading saved questions
 public class LoadQuestionsGUI {
     private JFrame loadQuestionsFrame;
     private JPanel loadQuestionsPanel;
@@ -28,6 +29,7 @@ public class LoadQuestionsGUI {
     private JButton errorButton;
     private QuestionBank bank = StudyBuddyApp.getBank();
 
+    // EFFECTS: Initializes GUI for user loading saved questions
     public LoadQuestionsGUI() {
         jsonReader = new JsonReader(JSON_STORE);
         loadQuestionBank();

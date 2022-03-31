@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// EFFECTS: Opens GUI for testing user
+
 public class TestUserGUI implements ActionListener {
     private JFrame startTestFrame;
     private JPanel startTestPanel;
@@ -49,12 +51,13 @@ public class TestUserGUI implements ActionListener {
 
     private boolean correct;
 
+    // EFFECTS: Runs the test user GUI
     public TestUserGUI() {
         testWelcome();
 
     }
 
-
+    // EFFECTS: Opens welcome page for user test
     private void testWelcome() {
 
         startTestFrame = new JFrame();
@@ -74,6 +77,7 @@ public class TestUserGUI implements ActionListener {
         startTestFrame.setVisible(true);
     }
 
+    // EFFECTS: Starts the actual test for user
     private void runQuiz() {
         if (outOf == 0) {
             //GUI for No Questions! return user to menu - JButton = we done
@@ -89,6 +93,7 @@ public class TestUserGUI implements ActionListener {
         }
     }
 
+    // EFFECTS: creates frame for user with no questions added
 
     private void noQuestions() {
 
@@ -127,6 +132,8 @@ public class TestUserGUI implements ActionListener {
         quizCompleteFrame.pack();
         quizCompleteFrame.setVisible(true);
     }
+
+    // EFFECTS: Creates frame for asking user question
 
     private void askQuestion() {
         curQuestion = tempQuestions.get(0);

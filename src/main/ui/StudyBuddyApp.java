@@ -25,6 +25,7 @@ public class StudyBuddyApp {
         runStudyBuddy();
     }
 
+
     private void runStudyBuddy() {
         boolean keepGoing = true;
         String command = null;
@@ -46,6 +47,8 @@ public class StudyBuddyApp {
 
         System.out.println("\n(✪‿✪)ノ Let's study again soon!");
     }
+
+    // EFFECTS: Processes user command
 
     private void processCommand(String command) {
         if (command.equals("a")) {
