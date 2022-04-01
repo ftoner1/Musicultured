@@ -27,5 +27,11 @@ Removed most recent question from bank \
 Removed most recent question from bank \
 Added a question to bank 
 
+## Phase 4: Task 3
+
+If I could refactor my code I think I would alter the way the quiz functionality works in the GUI. In its current form a new window pops up for every new question,
+but I think a more user-friendly implementation would have one quiz window. I think I overused windows in some of my implementations. As for the backend aspect of my code, I can't think of any ways it could be refactored for improved efficiency.
+
+
 
 An example of text with **bold** and *italic* fonts. 
